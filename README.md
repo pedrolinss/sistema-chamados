@@ -43,7 +43,7 @@ src/
 public/
 ├── index.html
 ├── script.js
-├── style.css
+└── style.css
 
 
 
