@@ -1,3 +1,5 @@
+let filtroAtual = 'todos'
+
 const form = document.getElementById('formChamado')
 
 const listaChamados = document.getElementById('listaChamados')
@@ -11,7 +13,13 @@ async function carregarChamados() {
 
     listaChamados.innerHTML = ''
 
-    chamados.forEach(chamado => {
+    let chamadosFiltrados = chamados
+
+    if (filtroAtual !== 'todos') {
+        chamadosFiltrados = chamados.filter(c => c.status === filtroAtual)
+    }
+
+    chamadosFiltrados.forEach(chamado => {
 
         listaChamados.innerHTML += `
             <div class="chamado">
@@ -19,9 +27,15 @@ async function carregarChamados() {
 
                 <p>${chamado.descricao}</p>
 
-                <span>Status: ${chamado.status}</span>
+                <span class="status-${chamado.status}">
+                    ${chamado.status}
+                </span>
 
                 <br><br>
+
+                <button onclick="concluirChamado(${chamado.id})">
+                    Concluir
+                </button>
 
                 <button onclick="deletarChamado(${chamado.id})">
                     Deletar
@@ -67,10 +81,40 @@ carregarChamados()
 
 async function deletarChamado(id) {
 
+    const confirmar = confirm('Tem certeza que deseja deletar este chamado?')
+
+    if (!confirmar) return
+
     await fetch(`/chamados/${id}`, {
         method: 'DELETE'
     })
 
     carregarChamados()
-
 }
+
+async function concluirChamado(id) {
+
+    await fetch(`/chamados/${id}`, {
+
+        method: 'PUT',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            status: 'concluido'
+        })
+
+    })
+
+    carregarChamados()
+}
+
+// Filtra chamados
+function setFiltro(filtro) {
+    filtroAtual = filtro
+    carregarChamados()
+}
+
+carregarChamados()
