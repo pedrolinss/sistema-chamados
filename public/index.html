@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Chamados</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Sistema de Chamados</h1>
+
+    <form id="formChamado">
+
+        <input
+            type="text"
+            id="titulo"
+            placeholder="Título"
+            required
+        >
+
+        <textarea
+            id="descricao"
+            placeholder="Descrição"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Criar Chamado
+        </button>
+
+    </form>
+
+    <div id="listaChamados"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

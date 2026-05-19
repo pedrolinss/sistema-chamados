@@ -1,0 +1,12 @@
+const sqlite3 = require('sqlite3').verbose()
+
+const db = new sqlite3.Database('./src/database/chamados.db', (err) => {
+
+    if (err) {
+        console.log('Erro ao conectar banco')
+    } else {
+        console.log('Banco conectado')
+    }
+})
+
+module.exports = db
