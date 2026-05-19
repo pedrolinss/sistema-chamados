@@ -9,11 +9,9 @@ A aplicação permite criar, listar, atualizar e remover chamados, com persistê
 ### Tela inicial
 ![Tela inicial](./prints/preview.png)
 
-### Criar chamado
+### Deleta chamado
 ![Criar chamado](./prints/confirmDelete.png)
 
-### Lista de chamados
-![Lista](./prints/lista.png)
 
 ---
 
