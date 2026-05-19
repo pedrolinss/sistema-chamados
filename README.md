@@ -4,6 +4,17 @@ Sistema simples de gerenciamento de chamados desenvolvido como projeto de estudo
 
 A aplicação permite criar, listar, atualizar e remover chamados, com persistência de dados utilizando SQLite e interface web simples.
 
+## 📷 Preview
+
+### Tela inicial
+![Tela inicial](./prints/preview.png)
+
+### Criar chamado
+![Criar chamado](./prints/confirmDelete.png)
+
+### Lista de chamados
+![Lista](./prints/lista.png)
+
 ---
 
 ## 🚀 Funcionalidades
